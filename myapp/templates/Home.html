@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Welcome {{name}}, here are top destinations!</h1>
+<body>
+	<div>
+		<a href = "https://www.google.com/">goooogle</a>
+	</div>
+</body>
+<body>
+	<ul>
+		{% for c in top_cities %}
+		<li>{{c}}</li>
+		{% endfor %}
+	</ul>
+</body>
+<form method = "POST" novalidate>
+	{{ form.csrf_token }}
+	<p>{{form.city_name.label}} <br>{{form.city_name(size = 32)}}</p>
+	<p>{{form.city_rank.label}} <br>{{form.city_rank(size = 32)}}</p>
+
+	<p>{{form.is_visited.label}} <br>{{form.is_visited()}} </p>
+	<p>{{form.submit()}}</p>
+</form>
+{% endblock %}
